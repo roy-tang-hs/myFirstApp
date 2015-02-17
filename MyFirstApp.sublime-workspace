@@ -1,0 +1,650 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"la",
+				"layerWithColorWidthHeight"
+			],
+			[
+				"c",
+				"LayerColor"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 275,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "cocos2d.js",
+			"settings":
+			{
+				"buffer_size": 3971,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "MyFirstApp.js",
+			"settings":
+			{
+				"buffer_size": 1117,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Classes/AppDelegate.js",
+			"settings":
+			{
+				"buffer_size": 3218,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/wamp/www/HelloWorld/Helloworld.js",
+			"settings":
+			{
+				"buffer_size": 3780,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/wamp/www/HelloWorld/Classes/AppDelegate.js",
+			"settings":
+			{
+				"buffer_size": 3158,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/wamp/www/cocos2d/sprite_nodes/CCSprite.js",
+			"settings":
+			{
+				"buffer_size": 56585,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Searching 83 files for \"scheduleUpdate\"\n\nC:\\wamp\\www\\cocos2d\\actions\\CCActionManager.js:\n   70  \n   71      init:function () {\n   72:         cc.Scheduler.sharedScheduler().scheduleUpdateForTarget(this, 0, false);\n   73          return true;\n   74      },\n   ..\n  235       */\n  236      purgeSharedManager:function () {\n  237:         cc.Scheduler.sharedScheduler().unscheduleUpdateForTarget(this);\n  238      },\n  239  \n\nC:\\wamp\\www\\cocos2d\\base_nodes\\CCNode.js:\n  992       @since v0.99.3\n  993       */\n  994:     scheduleUpdate:function () {\n  995:         this.scheduleUpdateWithPriority(0);\n  996      },\n  997      /** schedules the \"update\" selector with a custom priority. This selector will be called every frame.\n  ...\n 1001       @since v0.99.3\n 1002       */\n 1003:     scheduleUpdateWithPriority:function (priority) {\n 1004:         cc.Scheduler.sharedScheduler().scheduleUpdateForTarget(this, priority, !this._m_bIsRunning);\n 1005      },\n 1006      /* unschedules the \"update\" method.\n ....\n 1008       @since v0.99.3\n 1009       */\n 1010:     unscheduleUpdate:function () {\n 1011:         cc.Scheduler.sharedScheduler().unscheduleUpdateForTarget(this);\n 1012      },\n 1013      schedule:function (selector, interval) {\n\nC:\\wamp\\www\\cocos2d\\CCScheduler.js:\n  501      /** The scheduled method will be called every 'interval' seconds.\n  502       If paused is YES, then it won't be called until it is resumed.\n  503:      If 'interval' is 0, it will be called every frame, but if so, it recommened to use 'scheduleUpdateForTarget:' instead.\n  504       If the selector is already scheduled, then only the interval parameter will be updated without re-scheduling it again.\n  505  \n  ...\n  543       @since v0.99.3\n  544       */\n  545:     scheduleUpdateForTarget:function (pTarget, nPriority, bPaused) {\n  546          var pHashElement = cc.HASH_FIND_INT(this._m_pHashForUpdates, pTarget);\n  547  \n  ...\n  610       @since v0.99.3\n  611       */\n  612:     unscheduleUpdateForTarget:function (pTarget) {\n  613          if (pTarget == null) {\n  614              return;\n  ...\n  649          }\n  650          // update selector\n  651:         this.unscheduleUpdateForTarget(pTarget);\n  652      },\n  653  \n  ...\n  667          //updates selectors\n  668          for (i = 0; i < this._m_pUpdates0List.length; i++) {\n  669:             this.unscheduleUpdateForTarget(this._m_pUpdates0List[i].target);\n  670          }\n  671          for (i = 0; i < this._m_pUpdatesNegList.length; i++) {\n  672:             this.unscheduleUpdateForTarget(this._m_pUpdatesNegList[i].target);\n  673          }\n  674          for (i = 0; i < this._m_pUpdatesPosList.length; i++) {\n  675:             this.unscheduleUpdateForTarget(this._m_pUpdatesPosList[i].target);\n  676          }\n  677      },\n\nC:\\wamp\\www\\cocos2d\\misc_nodes\\CCMotionStreak.js:\n   83          this.addChild(this._m_pRibbon);\n   84  \n   85:         // update ribbon position. Use schedule:interval and not scheduleUpdated. (cocos2d-iphone)issue #1075\n   86          this.schedule(this.update, 0);\n   87          return true;\n\nC:\\wamp\\www\\cocos2d\\particle_nodes\\CCParticleSystem.js:\n  844  \n  845          // udpate after action in run!\n  846:         this.scheduleUpdateWithPriority(1);\n  847  \n  848          return true;\n  ...\n 1107  \n 1108                  if (this._m_uParticleCount == 0 && this._m_bIsAutoRemoveOnFinish) {\n 1109:                     this.unscheduleUpdate();\n 1110                      this._m_pParent.removeChild(this, true);\n 1111                      return;\n\n18 matches across 5 files\n\n\nSearching 268 files for \"scheduleUpdate\"\n\nC:\\wamp\\www\\tests\\Classes\\tests\\Box2dTest\\Box2dTest.js:\n   99          label.setPosition(cc.PointMake(screenSize.width / 2, screenSize.height - 50));\n  100  \n  101:         this.scheduleUpdate();\n  102  \n  103  \n\nC:\\wamp\\www\\tests\\Classes\\tests\\CocosNodeTest\\CocosNodeTest.js:\n  497  \n  498          this._m_z = 0;\n  499:         this.scheduleUpdate();\n  500      },\n  501      update:function (dt) {\n\nC:\\wamp\\www\\tests\\Classes\\tests\\IntervelTest\\IntervelTest.js:\n   62          this.m_label4 = cc.LabelTTF.labelWithString(\"0\", \"Arial\", 24);\n   63  \n   64:         this.scheduleUpdate();\n   65          this.schedule(this.step1);\n   66          this.schedule(this.step2, 0);\n\nC:\\wamp\\www\\tests\\Classes\\tests\\PerformanceTest\\PerformanceNodeChildrenTest.js:\n  202              this._profilingTimer = cc.Profiler.timerWithName(this.profilerName(), this);\n  203          }\n  204:         this.scheduleUpdate();\n  205      },\n  206      update:function (dt) {\n  ...\n  324          }\n  325  \n  326:         this.scheduleUpdate();\n  327      },\n  328      update:function (dt) {\n\nC:\\wamp\\www\\tests\\Classes\\tests\\PerformanceTest\\PerformanceTouchesTest.js:\n   63          label.setPosition(cc.ccp(s.width / 2, s.height - 50));\n   64  \n   65:         this.scheduleUpdate();\n   66  \n   67          this._m_plabel = cc.LabelTTF.labelWithString(\"00.0\", \"Arial\", 16);\n\nC:\\wamp\\www\\tests\\Classes\\tests\\SchedulerTest\\SchedulerTest.js:\n  308      initWithString:function (pStr, priority) {\n  309          this._pString = pStr;\n  310:         this.scheduleUpdateWithPriority(priority);\n  311      }\n  312  });\n  ...\n  372          this._super();\n  373  \n  374:         this.scheduleUpdate();\n  375          this.schedule(this.tick);\n  376          this.schedule(this.stopSelectors, 0.4);\n  ...\n  412      schedUpdate:function (dt) {\n  413          this.unschedule(this.schedUpdate);\n  414:         this.scheduleUpdate();\n  415          this.schedule(this.stopUpdate, 2.0);\n  416      },\n  417      stopUpdate:function (dt) {\n  418:         this.unscheduleUpdate();\n  419          this.unschedule(this.stopUpdate);\n  420      }\n\n10 matches across 6 files\n",
+			"settings":
+			{
+				"buffer_size": 5752,
+				"line_ending": "Windows",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "/C/wamp/www/tests/Classes/tests/SchedulerTest/SchedulerTest.js",
+			"settings":
+			{
+				"buffer_size": 12561,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/wamp/www/HelloWorld/HelloWorld.html",
+			"settings":
+			{
+				"buffer_size": 426,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/Mike/AppData/Roaming/Sublime Text 2/Packages/SublimeCodeIntel/Base File.sublime-settings",
+		"/C/Users/Mike/AppData/Roaming/Sublime Text 2/Packages/User/Base File.sublime-settings",
+		"/C/Users/Mike/Desktop/cocos2d-cocos2d-html5/HelloWorld/Helloworld.js",
+		"/C/wamp/www/MyFirstApp/Classes/AppDelegate.js",
+		"/C/wamp/www/MyFirstApp/MyFirstApp.js",
+		"/C/wamp/www/MyFirstApp/cocos2d.js",
+		"/C/wamp/www/MyFirstApp/index.html",
+		"/C/Users/Mike/Desktop/cocos2d-cocos2d-html5/HelloWorld/Classes/AppDelegate.js",
+		"/C/Users/Mike/Desktop/cocos2d-cocos2d-html5/HelloWorld/HelloWorld.html",
+		"/C/Users/Mike/Desktop/cocos2d-cocos2d-html5/Demo/HelloWorldTutorial/Helloworld.js",
+		"/C/Users/Mike/Desktop/cocos2d-cocos2d-html5/HelloWorld/cocos2d.js",
+		"/C/Users/Mike/Desktop/cocos2d-cocos2d-html5/Demo/demo.html",
+		"/C/Users/Mike/Desktop/cocos2d-cocos2d-html5/index.html"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"C:\\wamp\\www\\tests",
+			"C:\\wamp\\www\\cocos2d\\"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"scheduleUpdate"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "index.html",
+					"settings":
+					{
+						"buffer_size": 275,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								206,
+								206
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "cocos2d.js",
+					"settings":
+					{
+						"buffer_size": 3971,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1515,
+								1515
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "MyFirstApp.js",
+					"settings":
+					{
+						"buffer_size": 1117,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								723,
+								723
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Classes/AppDelegate.js",
+					"settings":
+					{
+						"buffer_size": 3218,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2131,
+								2131
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 525.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 4,
+			"sheets":
+			[
+				{
+					"buffer": 4,
+					"file": "/C/wamp/www/HelloWorld/Helloworld.js",
+					"settings":
+					{
+						"buffer_size": 3780,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1537,
+								1537
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 675.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/C/wamp/www/HelloWorld/Classes/AppDelegate.js",
+					"settings":
+					{
+						"buffer_size": 3158,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/C/wamp/www/cocos2d/sprite_nodes/CCSprite.js",
+					"settings":
+					{
+						"buffer_size": 56585,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								10437,
+								10440
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2970.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"settings":
+					{
+						"buffer_size": 5752,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										173,
+										187
+									],
+									[
+										369,
+										383
+									],
+									[
+										518,
+										532
+									],
+									[
+										567,
+										581
+									],
+									[
+										784,
+										798
+									],
+									[
+										879,
+										893
+									],
+									[
+										1063,
+										1077
+									],
+									[
+										1140,
+										1154
+									],
+									[
+										1522,
+										1536
+									],
+									[
+										1755,
+										1769
+									],
+									[
+										1975,
+										1989
+									],
+									[
+										2164,
+										2178
+									],
+									[
+										2355,
+										2369
+									],
+									[
+										2526,
+										2540
+									],
+									[
+										2699,
+										2713
+									],
+									[
+										2968,
+										2982
+									],
+									[
+										3218,
+										3232
+									],
+									[
+										3424,
+										3438
+									],
+									[
+										3794,
+										3808
+									],
+									[
+										3951,
+										3965
+									],
+									[
+										4186,
+										4200
+									],
+									[
+										4505,
+										4519
+									],
+									[
+										4622,
+										4636
+									],
+									[
+										4862,
+										4876
+									],
+									[
+										5146,
+										5160
+									],
+									[
+										5272,
+										5286
+									],
+									[
+										5501,
+										5515
+									],
+									[
+										5645,
+										5659
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								5156,
+								5156
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"output_tag": 2,
+							"result_base_dir": "",
+							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1560.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/C/wamp/www/tests/Classes/tests/SchedulerTest/SchedulerTest.js",
+					"settings":
+					{
+						"buffer_size": 12561,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8880,
+								8880
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3931.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "/C/wamp/www/HelloWorld/HelloWorld.html",
+					"settings":
+					{
+						"buffer_size": 426,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								382,
+								206
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true
+}
